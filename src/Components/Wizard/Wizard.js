@@ -6,11 +6,11 @@ import Step3 from "./Step3"
 
 
 export default class Wizard extends Component {
-  cancel() {}
+ 
   render() {
     return (
       <main className="house_container">
-        <div>
+         <div className="sub_header">
           <h1>Add New Property</h1>
           <Link to="/">
             <button>Cancel</button>

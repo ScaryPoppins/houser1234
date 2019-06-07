@@ -2,7 +2,7 @@ const express = require('express')
 const massive = require('massive')
 require('dotenv').config()
 const app = express();
-const { getHouses} = require("./controller");
+const { getHouses, addHouse} = require("./controller");
 
 const {SERVER_PORT, CONNECTION_STRING} = process.env;
 
@@ -15,5 +15,6 @@ massive(CONNECTION_STRING).then(db => {
 })
 
 app.get("/api/houses", getHouses);
+app.post("/api/house", addHouse);
 
 app.listen(SERVER_PORT, () => console.log(`Listening on Port ${SERVER_PORT}`));
