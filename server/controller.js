@@ -38,8 +38,16 @@ const addHouse = async (req, res) => {
   res.status(200).json(reply);
 };
 
-
-
+const deleteHouse = async (req, res) => {
+  const reply = await req.app
+    .get("db")
+    .delete_house(req.params.id)
+    .catch(error => {
+      console.log(error);
+      res.status(500).json("Server Error");
+    });
+  res.status(200).json(reply);
+};
 module.exports = {
 
 // getHouses: (req, res) => {
@@ -52,5 +60,6 @@ module.exports = {
 //    res.status(200).json(reply);
 //   }, 
   getHouses,
-  addHouse
+  addHouse, 
+  deleteHouse
   }
